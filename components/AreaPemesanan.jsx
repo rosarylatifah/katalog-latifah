@@ -6,6 +6,7 @@ import { formatRupiah } from "@/lib/format";
 
 export default function AreaPemesanan({ produk }) {
   const [jumlah, setJumlah] = useState(1);
+  const [varian, setVarian] = useState("");
 
   // Pastikan jumlah berada dalam batas aman (1 s.d. 999)
   const jumlahAman = Math.max(1, Math.min(999, parseInt(jumlah, 10) || 1));
@@ -14,8 +15,9 @@ export default function AreaPemesanan({ produk }) {
   // Sanitasi nomor WhatsApp toko (hanya angka)
   const noWhatsApp = (toko.nomorWhatsApp || "").replace(/\D/g, "");
 
-  // Format pesan WhatsApp dengan jumlah dan total harga yang di-encode aman
-  const teksPesan = `Halo, saya ingin memesan ${produk.nama} sejumlah ${jumlahAman} pcs dengan total harga ${formatRupiah(totalHarga)}.`;
+  // Format pesan WhatsApp dengan jumlah, varian pilihan, dan total harga (US-03 & US-12)
+  const keteranganVarian = varian.trim() ? ` (Varian/Catatan: ${varian.trim()})` : "";
+  const teksPesan = `Halo, saya ingin memesan ${produk.nama}${keteranganVarian} sejumlah ${jumlahAman} pcs dengan total harga ${formatRupiah(totalHarga)}.`;
   const urlWhatsApp = `https://wa.me/${noWhatsApp}?text=${encodeURIComponent(teksPesan)}`;
 
   const tambahJumlah = () => setJumlah((prev) => Math.min(999, prev + 1));
@@ -45,6 +47,18 @@ export default function AreaPemesanan({ produk }) {
             +
           </button>
         </div>
+      </div>
+
+      {/* Pemilihan Varian / Catatan Tambahan (US-12) */}
+      <div className="flex flex-col gap-1.5">
+        <label className="text-sm font-semibold">Pilih Varian / Catatan (opsional):</label>
+        <input
+          type="text"
+          value={varian}
+          onChange={(e) => setVarian(e.target.value.replace(/[<>]/g, "").slice(0, 100))}
+          placeholder="Contoh: Pedas, Manis, Ukuran L, Kemasan Toples"
+          className="w-full rounded-lg border border-garis bg-latar px-3 py-2 text-sm text-teks placeholder:text-teks-lembut outline-none focus:border-utama"
+        />
       </div>
 
       {/* Rincian Total Harga */}
