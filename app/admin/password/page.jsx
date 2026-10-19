@@ -23,12 +23,12 @@ export default function HalamanGantiPassword() {
 
       <form action={formAction} className="flex max-w-sm flex-col gap-4">
         {state?.error && (
-          <div className="rounded-md bg-red-50 p-3 text-sm text-red-600 border border-red-200">
+          <div className="rounded-lg border border-bahaya/30 bg-permukaan p-3 text-sm text-bahaya">
             {state.error}
           </div>
         )}
         {state?.success && (
-          <div className="rounded-md bg-green-50 p-3 text-sm text-green-700 border border-green-200">
+          <div className="rounded-lg border border-utama/30 bg-permukaan p-3 text-sm text-utama font-semibold">
             {state.success}
           </div>
         )}

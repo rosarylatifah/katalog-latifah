@@ -1,11 +1,16 @@
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { toko } from "@/lib/toko";
 
 export const metadata = {
-  title: toko.nama,
-  description: toko.tagline,
+  title: "Latifah's Catalogue",
+  description: "Produk rumahan dari dapur dan perajin lokal, siap dipesan lewat WhatsApp.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Latifah's Catalogue",
+  },
 };
 
 export default function RootLayout({ children }) {

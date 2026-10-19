@@ -1,0 +1,16 @@
+{
+  "name": "Latifah's Catalogue",
+  "short_name": "Katalog Latifah",
+  "description": "Produk rumahan dari dapur dan perajin lokal, siap dipesan lewat WhatsApp.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

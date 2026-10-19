@@ -19,18 +19,18 @@ export default function HalamanLogin() {
 
       <form action={formAction} className="flex flex-col gap-4">
         {state?.error && (
-          <div className="rounded-md bg-red-50 p-3 text-sm text-red-600 border border-red-200">
+          <div className="rounded-lg border border-bahaya/30 bg-permukaan p-3 text-sm text-bahaya">
             {state.error}
           </div>
         )}
-        <Input 
-          label="Email" 
-          name="email" 
-          type="email" 
-          autoComplete="email" 
+        <Input
+          label="Email"
+          name="email"
+          type="email"
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required 
+          required
         />
         <Input
           label="Password"
