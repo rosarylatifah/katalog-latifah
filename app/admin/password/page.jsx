@@ -1,11 +1,16 @@
+"use client";
+
+import { useActionState, useState } from "react";
 import NavAdmin from "@/components/NavAdmin";
 import Input from "@/components/Input";
 import Tombol from "@/components/Tombol";
-import CatatanBelumAktif from "@/components/CatatanBelumAktif";
+import { gantiPasswordAction } from "../actions";
 
-// US-05: form ganti password belum berfungsi.
-// Tugas peserta: admin yang sudah login bisa mengganti password-nya, diproses di server.
 export default function HalamanGantiPassword() {
+  const [state, formAction, isPending] = useActionState(gantiPasswordAction, null);
+  const [passwordBaru, setPasswordBaru] = useState("");
+  const [konfirmasiPassword, setKonfirmasiPassword] = useState("");
+
   return (
     <div className="flex flex-col gap-6 py-8">
       <NavAdmin />
@@ -15,13 +20,27 @@ export default function HalamanGantiPassword() {
           Ganti password bawaan segera setelah pertama kali masuk. Minimal 8 karakter.
         </p>
       </div>
-      <form className="flex max-w-sm flex-col gap-4">
+
+      <form action={formAction} className="flex max-w-sm flex-col gap-4">
+        {state?.error && (
+          <div className="rounded-md bg-red-50 p-3 text-sm text-red-600 border border-red-200">
+            {state.error}
+          </div>
+        )}
+        {state?.success && (
+          <div className="rounded-md bg-green-50 p-3 text-sm text-green-700 border border-green-200">
+            {state.success}
+          </div>
+        )}
+
         <Input
           label="Password baru"
           name="password_baru"
           type="password"
           autoComplete="new-password"
           minLength={8}
+          value={passwordBaru}
+          onChange={(e) => setPasswordBaru(e.target.value)}
           required
         />
         <Input
@@ -30,13 +49,14 @@ export default function HalamanGantiPassword() {
           type="password"
           autoComplete="new-password"
           minLength={8}
+          value={konfirmasiPassword}
+          onChange={(e) => setKonfirmasiPassword(e.target.value)}
           required
         />
-        <Tombol type="submit" className="self-start">
-          Simpan password
+        <Tombol type="submit" disabled={isPending} className="self-start">
+          {isPending ? "Menyimpan..." : "Simpan password"}
         </Tombol>
       </form>
-      <CatatanBelumAktif>Ganti password belum berfungsi: lihat US-05.</CatatanBelumAktif>
     </div>
   );
 }
