@@ -74,7 +74,18 @@ Urutan yang disarankan: US-01, US-02, US-03, US-04, US-05, US-06, lalu fitur bon
 
 ## Tentang aplikasi ini
 
-- **Nama usaha:**
-- **Pembuat:**
-- **Link aplikasi:**
-- **Fitur bonus yang dikerjakan:**
+- **Nama usaha:** Latifah's Catalogue[cite: 3]
+- **Pembuat:** Latifah Intan Rosary
+- **Link aplikasi:** [Isi dengan link Vercel kamu, contoh: https://katalog-latifah.vercel.app]
+- **Fitur bonus yang dikerjakan:** 
+  1. **US-07:** List produk di halaman admin dari database Supabase[cite: 11]
+  2. **US-08:** Tambah produk (terkunci login)[cite: 11]
+  3. **US-09:** Ubah produk (terkunci login)[cite: 11]
+  4. **US-10:** Hapus produk (terkunci login)[cite: 11]
+  5. **US-11:** Filter kategori dan pencarian produk[cite: 11]
+  6. **US-12:** Pilih jumlah pesanan dengan kalkulasi total harga dinamis[cite: 11]
+  7. **US-13:** Dukungan Progressive Web App (PWA) / Bisa di-install di HP[cite: 11]
+  8. **US-14:** Generator deskripsi produk berbasis AI di panel admin[cite: 11]
+
+**Deskripsi Singkat:**
+Latifah's Catalogue adalah platform e-commerce katalog digital modern yang dirancang untuk mendukung UMKM dan usaha lokal di Kota Batam[cite: 3]. Aplikasi ini memudahkan pelanggan untuk mencari produk, memilih jumlah pesanan, dan langsung melakukan pemesanan instan terintegrasi lewat WhatsApp secara otomatis[cite: 3, 11]. Dilengkapi panel admin yang aman berbasis Supabase Auth untuk mengelola seluruh data produk secara real-time[cite: 1, 11].
